@@ -334,7 +334,7 @@ Key $MODKEY-Tab
 	eval wmiir setsid "$(wmii9menu -i subl firefox chromium-browser subl gnome-calculator tor-browser)" &	
 #select clear tag
 Key $MODKEY-grave
-	wmiir xwrite /ctl view $(paste <( wmiir ls /tag | grep -o -E "[0-9]+")  <(seq 9)  | awk '$1!=$2' | head -n1 | awk '{print $NF}')
+	wmiir xwrite /ctl view $(paste <( wmiir ls /tag | grep -o -E "[0-9]+")  <(seq 100)  | awk '$1!=$2' | head -n1 | awk '{print $NF}')
 #disable wallpaper service
 Key Mod3-o
 	kill `cat $(wmiir namespace)/.wallpaper_pid` 2> /dev/null
