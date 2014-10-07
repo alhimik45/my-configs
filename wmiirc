@@ -106,11 +106,21 @@ wallpaper() {
 }
 
 
+health_saver() {
+	while true; do
+		notify-send "Передохни"
+		sleep 48m
+	done
+}
+
+
+
 # Generic overridable startup details
 startup() { 
 	top_terminal &
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
+	health_saver &
 	wallpaper &
 	gxneur &
 	wicd-gtk -t &
