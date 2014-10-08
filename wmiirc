@@ -106,11 +106,18 @@ wallpaper() {
 }
 
 
-health_saver() {
+health_saver_service() {
 	while true; do
 		sleep 48m
 		notify-send "Передохни"
 	done
+}
+
+
+health_saver() {
+	kill `cat $(wmiir namespace)/.healther_pid` > /dev/null 2>&1
+	{ health_saver_service; }&
+	echo -n $! > $(wmiir namespace)/.healther_pid
 }
 
 
