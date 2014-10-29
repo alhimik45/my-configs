@@ -127,7 +127,6 @@ startup() {
 	top_terminal &
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
-	health_saver &
 	wallpaper &
 	gxneur &
 	wicd-gtk -t &
@@ -258,7 +257,7 @@ Key $MODKEY-Shift-space   # Toggle selected client between floating and managed 
 KeyGroup Client actions
 Key $MODKEY-f # Toggle selected client's fullsceen state
 	wmiir xwrite /client/sel/ctl Fullscreen toggle
-Key $MODKEY-Shift-e # Close client
+Key Mod3-e # Close client
 	wmiir xwrite /client/sel/ctl kill
 
 KeyGroup Changing column modes
@@ -350,7 +349,7 @@ Key $MODKEY-c
 	eval wmiir setsid "gnome-calculator" &
 #quick launch meni
 Key $MODKEY-Tab
-	eval wmiir setsid "$(wmii9menu -i subl firefox chromium-browser subl gnome-calculator tor-browser screenshot)" &	
+	eval wmiir setsid "$(wmii9menu -i subl firefox chromium subl gnome-calculator tor-browser screenshot)" &	
 #select clear tag
 Key $MODKEY-grave
 	wmiir xwrite /ctl view $(paste <( wmiir ls /tag | grep -o -E "[0-9]+")  <(seq 100)  | awk '$1!=$2' | head -n1 | awk '{print $NF}')
