@@ -15,6 +15,8 @@ RIGHT=x
 noticetimeout=5
 noticebar=/rbar/!notice
 
+soundbar=/rbar/sound
+
 #Bar at top
 wmiir xwrite /ctl bar on top 
 
@@ -121,6 +123,44 @@ health_saver() {
 }
 
 
+MPLAYER_FIFO_IN=/tmp/.mplayer_in
+MPLAYER_FIFO_OUT=/tmp/.mplayer_out
+
+player_service() {
+	mplayer -input file="$MPLAYER_FIFO_IN"  -quiet -slave -loop 0 -shuffle ~/music/* > "$MPLAYER_FIFO_OUT" &
+	echo -n $! > $(wmiir namespace)/.player_pid
+	(while read myline; do 
+		str=$(echo $myline | awk '/^Playing/')
+		if [ -n "$str" ]; then
+			res=$(echo $str | awk -F/ '{print $NF}' | head -c40)...
+			wmiir xwrite $soundbar "label $res"
+		fi
+	done) < $MPLAYER_FIFO_OUT
+}
+
+
+player_mplayer() {
+	if ! kill -0 `cat $(wmiir namespace)/.player_service_pid` > /dev/null 2>&1; then
+		if [ ! -p $MPLAYER_FIFO_IN ]; then
+			mkfifo $MPLAYER_FIFO_IN
+		fi
+		if [ ! -p $MPLAYER_FIFO_OUT ]; then
+			mkfifo $MPLAYER_FIFO_OUT
+		fi
+		{ player_service; }&
+		echo -n $! > $(wmiir namespace)/.player_service_pid
+	else
+		echo "pause" > $MPLAYER_FIFO_IN
+	fi
+}
+
+stop_player() {
+	kill `cat $(wmiir namespace)/.player_pid` 2> /dev/null
+	kill `cat $(wmiir namespace)/.player_service_pid` 2> /dev/null
+}
+
+
+
 
 # Generic overridable startup details
 startup() { 
@@ -138,7 +178,9 @@ startup() {
 
 wi_runconf -s wmiirc_local
 
+echo colors $WMII_NORMCOLORS | wmiir create $soundbar
 echo colors $WMII_NORMCOLORS | wmiir create $noticebar
+
 
 # Event processing
 wi_events <<'!'
@@ -331,6 +373,14 @@ Key $MODKEY-Control-Down
 	wmiir xwrite /tag/sel/ctl grow sel sel up -1
 Key $MODKEY-Control-Up
 	wmiir xwrite /tag/sel/ctl grow sel sel down -1	
+
+KeyGroup MPlayer
+Key Mod3-q
+	player_mplayer &
+Key Mod3-x
+	 echo "pt_step 1" > $MPLAYER_FIFO_IN &
+Key Mod3-s
+	stop_player &
 
 KeyGroup My actions
 #ping
