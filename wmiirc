@@ -379,6 +379,8 @@ Key Mod3-q
 	player_mplayer &
 Key Mod3-x
 	 echo "pt_step 1" > $MPLAYER_FIFO_IN &
+Key Mod3-z
+	 echo "seek -1500" > $MPLAYER_FIFO_IN &
 Key Mod3-s
 	stop_player &
 
