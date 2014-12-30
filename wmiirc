@@ -401,7 +401,7 @@ Key $MODKEY-c
 	eval wmiir setsid "gnome-calculator" &
 #quick launch meni
 Key $MODKEY-Tab
-	eval wmiir setsid "$(wmii9menu -i subl firefox chromium subl gnome-calculator tor-browser screenshot)" &	
+	eval wmiir setsid "$(wmii9menu -i subl firefox chromium subl xchat tor-browser screenshot)" &	
 #select clear tag
 Key $MODKEY-grave
 	wmiir xwrite /ctl view $(paste <( wmiir ls /tag | grep -o -E "[0-9]+")  <(seq 100)  | awk '$1!=$2' | head -n1 | awk '{print $NF}')
