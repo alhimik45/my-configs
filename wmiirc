@@ -169,7 +169,7 @@ startup() {
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
 	wallpaper &
 	gxneur &
-	wicd-gtk -t &
+	#wicd-gtk -t &
 	blueman-applet &
 	/usr/bin/python /usr/bin/mintupdate-launcher &
 	witray & 
