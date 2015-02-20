@@ -89,25 +89,6 @@ top_terminal() {
 
 }
 
-
-wallpaper_service() {
-	while true; do
-		for file in $HOME/.wallpapers/*; do
-			display -window root "$file"
-			sleep 30m
-		done
-	done
-}
-
-
-wallpaper() {
-	if ! kill -0 `cat $(wmiir namespace)/.wallpaper_pid` > /dev/null 2>&1; then
-		{ wallpaper_service; }&
-		echo -n $! > $(wmiir namespace)/.wallpaper_pid
-	fi
-}
-
-
 health_saver_service() {
 	while true; do
 		sleep 48m
@@ -122,7 +103,8 @@ health_saver() {
 	echo -n $! > $(wmiir namespace)/.healther_pid
 }
 
-
+WALLPAPER_FIFO_IN=/tmp/.wmii-wallpapers-in
+WALLPAPER_FIFO_OUT=/tmp/.wmii-wallpapers-out
 MPLAYER_FIFO_IN=/tmp/.mplayer_in
 MPLAYER_FIFO_OUT=/tmp/.mplayer_out
 
@@ -167,7 +149,8 @@ startup() {
 	top_terminal &
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
-	wallpaper &
+	cd /home/userr/.wmii
+	java -jar /home/userr/.wmii/wmii-wallpapers-1.0.0-SNAPSHOT-standalone.jar > log.txt & 
 	gxneur &
 	#wicd-gtk -t &
 	blueman-applet &
@@ -407,11 +390,11 @@ Key $MODKEY-grave
 	wmiir xwrite /ctl view $(paste <( wmiir ls /tag | grep -o -E "[0-9]+")  <(seq 100)  | awk '$1!=$2' | head -n1 | awk '{print $NF}')
 #disable wallpaper service
 Key Mod3-o
-	kill `cat $(wmiir namespace)/.wallpaper_pid` 2> /dev/null
+	echo "exit" > $WALLPAPER_FIFO_IN &
 	xsetroot -solid "$WMII_BACKGROUND" &
 #enable wallpaper service
 Key Mod3-p
-	wallpaper &
+	echo "next-wallpaper" > $WALLPAPER_FIFO_IN &
 
 
 !
