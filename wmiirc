@@ -103,46 +103,7 @@ health_saver() {
 	echo -n $! > $(wmiir namespace)/.healther_pid
 }
 
-WALLPAPER_FIFO_IN=/tmp/.wmii-wallpapers-in
-WALLPAPER_FIFO_OUT=/tmp/.wmii-wallpapers-out
-MPLAYER_FIFO_IN=/tmp/.mplayer_in
-MPLAYER_FIFO_OUT=/tmp/.mplayer_out
-
-player_service() {
-	mplayer -input file="$MPLAYER_FIFO_IN"  -quiet -slave -loop 0 -shuffle ~/music/* > "$MPLAYER_FIFO_OUT" &
-	echo -n $! > $(wmiir namespace)/.player_pid
-	(while read myline; do 
-		str=$(echo $myline | awk '/^Playing/')
-		if [ -n "$str" ]; then
-			res=$(echo $str | awk -F/ '{print $NF}' | head -c40)...
-			wmiir xwrite $soundbar "label $res"
-		fi
-	done) < $MPLAYER_FIFO_OUT
-}
-
-
-player_mplayer() {
-	if ! kill -0 `cat $(wmiir namespace)/.player_service_pid` > /dev/null 2>&1; then
-		if [ ! -p $MPLAYER_FIFO_IN ]; then
-			mkfifo $MPLAYER_FIFO_IN
-		fi
-		if [ ! -p $MPLAYER_FIFO_OUT ]; then
-			mkfifo $MPLAYER_FIFO_OUT
-		fi
-		{ player_service; }&
-		echo -n $! > $(wmiir namespace)/.player_service_pid
-	else
-		echo "pause" > $MPLAYER_FIFO_IN
-	fi
-}
-
-stop_player() {
-	kill `cat $(wmiir namespace)/.player_pid` 2> /dev/null
-	kill `cat $(wmiir namespace)/.player_service_pid` 2> /dev/null
-}
-
-
-
+HELPER_FIFO_IN=/tmp/.wmii-helper-in
 
 # Generic overridable startup details
 startup() { 
@@ -150,7 +111,8 @@ startup() {
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
 	cd /home/userr/.wmii
-	java -jar /home/userr/.wmii/wmii-wallpapers-1.0.0-SNAPSHOT-standalone.jar > log.txt & 
+	java -jar wmii-helper-1.0.0-SNAPSHOT-standalone.jar &> log.txt & 
+	cd ~
 	gxneur &
 	#wicd-gtk -t &
 	blueman-applet &
@@ -356,16 +318,16 @@ Key $MODKEY-Control-Down
 	wmiir xwrite /tag/sel/ctl grow sel sel up -1
 Key $MODKEY-Control-Up
 	wmiir xwrite /tag/sel/ctl grow sel sel down -1	
-
-KeyGroup MPlayer
+#keys for wmii-helper
+KeyGroup Helper
 Key Mod3-q
-	player_mplayer &
+	echo player-pause > $HELPER_FIFO_IN &
 Key Mod3-x
-	 echo "pt_step 1" > $MPLAYER_FIFO_IN &
+	echo player-next > $HELPER_FIFO_IN &
 Key Mod3-z
-	 echo "seek -1500" > $MPLAYER_FIFO_IN &
-Key Mod3-s
-	stop_player &
+	echo player-loop > $HELPER_FIFO_IN &
+Key Mod3-p
+	echo wallpaper-next > $HELPER_FIFO_IN &
 
 KeyGroup My actions
 #ping
@@ -388,15 +350,6 @@ Key $MODKEY-Tab
 #select clear tag
 Key $MODKEY-grave
 	wmiir xwrite /ctl view $(paste <( wmiir ls /tag | grep -o -E "[0-9]+")  <(seq 100)  | awk '$1!=$2' | head -n1 | awk '{print $NF}')
-#disable wallpaper service
-Key Mod3-o
-	echo "exit" > $WALLPAPER_FIFO_IN &
-	xsetroot -solid "$WMII_BACKGROUND" &
-#enable wallpaper service
-Key Mod3-p
-	echo "next-wallpaper" > $WALLPAPER_FIFO_IN &
-
-
 !
 
 
