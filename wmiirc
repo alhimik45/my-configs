@@ -328,6 +328,11 @@ Key Mod3-z
 	echo player-loop > $HELPER_FIFO_IN &
 Key Mod3-p
 	echo wallpaper-next > $HELPER_FIFO_IN &
+Key Mod3-s
+	{
+	MUSIC=/home/userr/music/`ls /home/userr/music| wimenu`
+	echo player-play-file {:path \"$MUSIC\"} > $HELPER_FIFO_IN
+	} &
 
 KeyGroup My actions
 #ping
