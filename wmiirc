@@ -330,7 +330,7 @@ Key Mod3-p
 	echo wallpaper-next > $HELPER_FIFO_IN &
 Key Mod3-s
 	{
-	MUSIC=/home/userr/music/`ls /home/userr/music| wimenu`
+	MUSIC=`nw /home/userr/.wmii/music-asker.nw`
 	echo player-play-file {:path \"$MUSIC\"} > $HELPER_FIFO_IN
 	} &
 
