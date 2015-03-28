@@ -12,6 +12,8 @@ export CHROME_BIN=/usr/bin/chromium-browser
 alias xo='xdg-open'
 alias ttr='gvfs-trash'
 alias pgr="ps aux |grep"
+alias gti="git"
+alias got="git"
 shopt -s cdspell
 
 
