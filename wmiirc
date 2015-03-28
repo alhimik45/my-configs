@@ -111,7 +111,7 @@ startup() {
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
 	cd /home/userr/.wmii
-	java -jar wmii-helper-1.0.0-SNAPSHOT-standalone.jar &> log.txt & 
+	java -jar wmii-helper.jar &> log.txt & 
 	cd ~
 	gxneur &
 	#wicd-gtk -t &
