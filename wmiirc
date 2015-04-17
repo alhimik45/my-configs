@@ -330,8 +330,14 @@ Key Mod3-p
 	echo wallpaper-next > $HELPER_FIFO_IN &
 Key Mod3-s
 	{
-	MUSIC=`nw /home/userr/.wmii/music-asker.nw`
+	CURRENT_MUSIC_PATH=`cat /tmp/.wmii-helper-player-folder`
+	MUSIC=`nw /home/userr/.wmii/music-asker.nw $CURRENT_MUSIC_PATH file`
 	echo player-play-file {:path \"$MUSIC\"} > $HELPER_FIFO_IN
+	} &
+Key Mod3-d
+	{
+	MUSIC=`nw /home/userr/.wmii/music-asker.nw /home/userr/music dir`
+	echo player-change-folder {:path\"$MUSIC\"} > $HELPER_FIFO_IN
 	} &
 
 KeyGroup My actions

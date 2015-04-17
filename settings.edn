@@ -1,4 +1,4 @@
 {  :plugins [:wallpapers :player]
    :images-folder "/home/userr/.wallpapers"
-   :music-folder "/home/userr/music"
+   :music-folder "/home/userr/music/common"
    :switch-time 30 }
