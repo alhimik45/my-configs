@@ -326,6 +326,14 @@ Key Mod3-x
 	echo player-next > $HELPER_FIFO_IN &
 Key Mod3-z
 	echo player-loop > $HELPER_FIFO_IN &
+Key $MODKEY-Mod3-q
+	echo player-increase-volume > $HELPER_FIFO_IN &
+Key $MODKEY-Mod3-a
+	echo player-decrease-volume > $HELPER_FIFO_IN &
+Key $MODKEY-Mod3-z
+	echo player-seek-backward > $HELPER_FIFO_IN &
+Key $MODKEY-Mod3-x
+	echo player-seek-forward > $HELPER_FIFO_IN &
 Key Mod3-p
 	echo wallpaper-next > $HELPER_FIFO_IN &
 Key Mod3-s
