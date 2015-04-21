@@ -9,6 +9,9 @@ export HISTSIZE=
 
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \n\$\[\033[00m\] '
 export CHROME_BIN=/usr/bin/chromium-browser
+export GOROOT=$HOME/Programs/go
+export GOPATH=$HOME/Programs/gopath
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias xo='xdg-open'
 alias ttr='gvfs-trash'
 alias pgr="ps aux |grep"
