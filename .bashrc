@@ -3,8 +3,11 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export HISTFILESIZE=
-export HISTSIZE=
+
+export HISTFILESIZE=-1
+export HISTSIZE=-1
+export HISTFILE=~/.bbash_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\]
 
 export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \n\$\[\033[00m\] '
