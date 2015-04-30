@@ -104,6 +104,7 @@ health_saver() {
 }
 
 HELPER_FIFO_IN=/tmp/.wmii-helper-in
+PLAYER_FIFO_IN=/tmp/.wmii-player-input
 
 # Generic overridable startup details
 startup() { 
@@ -111,7 +112,8 @@ startup() {
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
 	cd /home/userr/.wmii
-	java -jar wmii-helper.jar &> log.txt & 
+	java -jar wmii-helper.jar &>> log.txt & 
+	nw wmii-player.nw &>> player.log &
 	cd ~
 	gxneur &
 	#wicd-gtk -t &
@@ -318,35 +320,29 @@ Key $MODKEY-Control-Down
 	wmiir xwrite /tag/sel/ctl grow sel sel up -1
 Key $MODKEY-Control-Up
 	wmiir xwrite /tag/sel/ctl grow sel sel down -1	
-#keys for wmii-helper
+#keys for wmii-player
 KeyGroup Helper
 Key Mod3-q
-	echo player-pause > $HELPER_FIFO_IN &
+	echo pause > $PLAYER_FIFO_IN &
 Key Mod3-x
-	echo player-next > $HELPER_FIFO_IN &
+	echo next > $PLAYER_FIFO_IN &
 Key Mod3-z
-	echo player-loop > $HELPER_FIFO_IN &
+	echo loop > $PLAYER_FIFO_IN &
 Key $MODKEY-Mod3-q
-	echo player-increase-volume > $HELPER_FIFO_IN &
+	echo increase-volume > $PLAYER_FIFO_IN &
 Key $MODKEY-Mod3-a
-	echo player-decrease-volume > $HELPER_FIFO_IN &
+	echo decrease-volume > $PLAYER_FIFO_IN &
 Key $MODKEY-Mod3-z
-	echo player-seek-backward > $HELPER_FIFO_IN &
+	echo seek-backward > $PLAYER_FIFO_IN &
 Key $MODKEY-Mod3-x
-	echo player-seek-forward > $HELPER_FIFO_IN &
+	echo seek-forward > $PLAYER_FIFO_IN &
+Key Mod3-s
+	echo play-file > $PLAYER_FIFO_IN &
+Key Mod3-d
+	echo change-directory > $PLAYER_FIFO_IN &
+# wmii-helper
 Key Mod3-p
 	echo wallpaper-next > $HELPER_FIFO_IN &
-Key Mod3-s
-	{
-	CURRENT_MUSIC_PATH=`cat /tmp/.wmii-helper-player-folder`
-	MUSIC=`nw /home/userr/.wmii/music-asker.nw $CURRENT_MUSIC_PATH file`
-	echo player-play-file {:path \"$MUSIC\"} > $HELPER_FIFO_IN
-	} &
-Key Mod3-d
-	{
-	MUSIC=`nw /home/userr/.wmii/music-asker.nw /home/userr/music dir`
-	echo player-change-folder {:path\"$MUSIC\"} > $HELPER_FIFO_IN
-	} &
 
 KeyGroup My actions
 #ping
