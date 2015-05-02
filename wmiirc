@@ -103,7 +103,7 @@ health_saver() {
 	echo -n $! > $(wmiir namespace)/.healther_pid
 }
 
-HELPER_FIFO_IN=/tmp/.wmii-helper-in
+WALLPAPER_FIFO_IN=/tmp/.wmii-wallapper-input
 PLAYER_FIFO_IN=/tmp/.wmii-player-input
 
 # Generic overridable startup details
@@ -112,7 +112,7 @@ startup() {
 	xscreensaver -nosplash &
 	dunst -to 0 -lto 0 -nto 0 -cto 0 &
 	cd /home/userr/.wmii
-	java -jar wmii-helper.jar &>> log.txt & 
+	node wmii-wallpaper.js  /home/userr/.wallpapers/ $WALLPAPER_FIFO_IN 30 &>> wallpaper.log &
 	nw wmii-player.nw &>> player.log &
 	cd ~
 	gxneur &
@@ -321,7 +321,7 @@ Key $MODKEY-Control-Down
 Key $MODKEY-Control-Up
 	wmiir xwrite /tag/sel/ctl grow sel sel down -1	
 #keys for wmii-player
-KeyGroup Helper
+KeyGroup Player
 Key Mod3-q
 	echo pause > $PLAYER_FIFO_IN &
 Key Mod3-x
@@ -340,9 +340,10 @@ Key Mod3-s
 	echo play-file > $PLAYER_FIFO_IN &
 Key Mod3-d
 	echo change-directory > $PLAYER_FIFO_IN &
-# wmii-helper
+# wmii-wallpaper
+KeyGroup Wallpaper
 Key Mod3-p
-	echo wallpaper-next > $HELPER_FIFO_IN &
+	echo next > $WALLPAPER_FIFO_IN &
 
 KeyGroup My actions
 #ping
