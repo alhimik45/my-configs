@@ -348,7 +348,7 @@ Key Mod3-p
 KeyGroup My actions
 #ping
 Key $MODKEY-i
-	eval wmiir setsid 'gnome-terminal --disable-factory -t PING -e "ping 8.8.8.8"' &
+	eval wmiir setsid 'gnome-terminal --disable-factory -t PING -e "ping 8.8.8.8 -s 16"' &
 #screenshot
 Key Print
 	eval wmiir setsid "gnome-screenshot" &
