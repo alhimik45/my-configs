@@ -1,5 +1,5 @@
 {
-	"music_directory": "/home/userr/music/common",
+	"music_directory": "/home/userr/music/all",
 	"base_directory": "/home/userr/music",
 	"sound_bar": "/rbar/sound",
 	"mplayer_options": ["-cache-min", 10]

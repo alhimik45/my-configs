@@ -63,7 +63,7 @@ wmiir write /rules <<!
     /^Pidgin:/ allow=+activate
 
     # MPlayer and VLC don't float by default, but should.
-    /MPlayer|VLC/ floating=on
+    /MPlayer|VLC|MathFly/ floating=on
 
     # ROX puts all of its windows in the same group, so they open
     # with the same tags.  Disable grouping for ROX Filer.
