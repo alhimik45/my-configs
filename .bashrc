@@ -17,7 +17,7 @@ export GOPATH=$HOME/Programs/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias xo='xdg-open'
 alias ttr='gvfs-trash'
-alias pgr="ps aux |grep"
+alias pgr="ps aux |grep -i"
 alias gti="git"
 alias got="git"
 shopt -s cdspell
