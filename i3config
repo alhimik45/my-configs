@@ -30,7 +30,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym Mod3+e kill
 
 # start dmenu (a program launcher)
-bindsym $mod+r exec dmenu_run -fn Sans-10 -nb '#c1c48b' -nf '#000000' -sb '#81654f' -sf '#000000'
+bindsym $mod+r exec dmenu_run -fn Sans-12 -nb '#c1c48b' -nf '#000000' -sb '#81654f' -sf '#000000'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -188,8 +188,8 @@ workspace_layout stacking
 for_window [class="9menu"] floating enable, border none
 for_window [title="node-webkit"] floating enable, border none
 for_window [title="Calculator"] floating enable
-for_window [title="MathFly"] floating enable
-for_window [class="^Nautilus$" instance="^file_progress$"] floating enable
+for_window [title="Вычислитель"] floating enable
+for_window [class="^Nemo$" instance="^file_progress$"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
@@ -214,12 +214,13 @@ bar {
 
 
 #startup
-exec "killall nw; killall node; killall mplayer ; killall gxneur ;"
+exec mkfifo /tmp/.fifo-player-song
+exec "killall nw;  killall mplayer ;"
 exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -t TOP -e "top -i -d 1"; workspace 2'
 exec /usr/bin/python /usr/bin/mintupdate-launcher
 exec blueman-applet
 exec dunst -to 0 -lto 0 -nto 0 -cto 0
-exec gxneur
+exec "killall gxneur; gxneur"
 exec xscreensaver -nosplash
-exec /home/userr/.nvm/v0.12.0/bin/node /home/userr/projects/js/switchable-wallpapers/switchable-wp.js /home/userr/.wallpapers/ /tmp/.wp-input 30
+exec "killall node; /home/userr/.nvm/v0.12.0/bin/node /home/userr/projects/js/switchable-wallpapers/switchable-wp.js /home/userr/.wallpapers/ /tmp/.wp-input 30"
 exec i3-msg 'exec nw /home/userr/.i3/fifo-player.nw /home/userr/.i3/player-config.json &>> player.log'
