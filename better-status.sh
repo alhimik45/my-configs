@@ -1,5 +1,7 @@
 #!/bin/sh
 
+:> /dev/shm/fifo-player-song
+
 while true
 do
     if read line
