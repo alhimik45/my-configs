@@ -1,0 +1,1 @@
+i3-msg -t get_workspaces | ruby -e'require "json";exec "i3-msg workspace " + ((1..10).to_a - JSON.parse(gets).map{|e| e["num"]})[0].to_s'
