@@ -20,6 +20,10 @@ alias ttr='gvfs-trash'
 alias pgr="ps aux |grep -i"
 alias gti="git"
 alias got="git"
+alias gs="git st"
+alias gc="git co -am"
+alias ga="git add -A ."
+alias gd="git diff"
 shopt -s cdspell
 
 
