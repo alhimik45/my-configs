@@ -7,6 +7,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 export HISTFILE=~/.bbash_history
+export HISTCONTROL=ignorespace
+
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 #${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\]
 
