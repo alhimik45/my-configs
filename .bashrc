@@ -9,10 +9,20 @@ export HISTSIZE=-1
 export HISTFILE=~/.bbash_history
 export HISTCONTROL=ignorespace
 
-PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 #${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\]
 
-export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \n\$\[\033[00m\] '
+GREEN='\[\033[01;32m\]'
+BLUE='\[\033[01;34m\]'
+YELLOW='\[\033[0;33m\]'
+NC='\[\033[0m\]'
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWCOLORHINTS=1
+# export PS1="${GREEN}\u${BLUE} \w\n${BLUE}\$${NC} "
+export PROMPT_COMMAND='history -a; __git_ps1 "${GREEN}\u${BLUE} \w${YELLOW} " "\n${BLUE}\$ ${NC}" "\t%s"; __vte_prompt_command'
+
 export CHROME_BIN=/usr/bin/chromium-browser
 export GOROOT=$HOME/Programs/go
 export GOPATH=$HOME/Programs/gopath
