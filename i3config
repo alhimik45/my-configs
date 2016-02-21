@@ -169,6 +169,8 @@ bindsym $mod+Mod3+z exec echo seek-backward > /tmp/.fifo-player-input
 bindsym $mod+Mod3+x exec echo seek-forward > /tmp/.fifo-player-input
 bindsym Mod3+s exec echo play-file > /tmp/.fifo-player-input
 bindsym Mod3+d exec echo change-directory > /tmp/.fifo-player-input
+#playlist
+bindsym Mod3+f exec echo > /tmp/.playlist-maker-input
 
 #sound
 bindsym Mod3+m exec "amixer set Capture toggle;killall -USR1 i3status"
@@ -230,3 +232,4 @@ exec "killall gxneur; gxneur"
 exec xscreensaver -nosplash
 exec "killall node; /home/userr/.nvm/v0.12.0/bin/node /home/userr/projects/js/switchable-wallpapers/switchable-wp.js /home/userr/.wallpapers/ /tmp/.wp-input 30"
 exec i3-msg 'exec nw /home/userr/.i3/fifo-player.nw /home/userr/.i3/player-config.json &>> player.log'
+exec i3-msg 'exec nw /home/userr/.i3/playlist-maker.nw /home/userr/.i3/playlist-config.json &>> playlist.log'
