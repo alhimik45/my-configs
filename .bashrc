@@ -22,6 +22,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=1
 # export PS1="${GREEN}\u${BLUE} \w\n${BLUE}\$${NC} "
 export PROMPT_COMMAND='history -a; __git_ps1 "${GREEN}\u${BLUE} \w${YELLOW} " "\n${BLUE}\$ ${NC}" "\t%s"; __vte_prompt_command'
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 export CHROME_BIN=/usr/bin/chromium-browser
 export GOROOT=$HOME/Programs/go
