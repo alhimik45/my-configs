@@ -1,0 +1,5 @@
+XXkb.mainwindow.type:tray
+XXkb.mainwindow.image.1: us.xpm
+XXkb.mainwindow.image.2: ru.xpm
+XXkb.mainwindow.geometry: 15x15+10+0
+XXkb.button.enable: no
