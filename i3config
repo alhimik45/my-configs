@@ -173,10 +173,10 @@ bindsym Mod3+d exec echo change-directory > /tmp/.fifo-player-input
 bindsym Mod3+f exec echo > /tmp/.playlist-maker-input
 
 #sound
-bindsym Mod3+m exec "amixer set Capture toggle;killall -USR1 i3status"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle;killall -USR1 i3status"
-bindsym XF86AudioLowerVolume exec "amixer sset Master 1%-;killall -USR1 i3status"
-bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+;killall -USR1 i3status"
+bindsym Mod3+m exec "amixer set Capture toggle 1> /dev/null;killall -USR1 i3status"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle 1> /dev/null;killall -USR1 i3status"
+bindsym XF86AudioLowerVolume exec "amixer sset Master 1%- 1> /dev/null;killall -USR1 i3status"
+bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+ 1> /dev/null;killall -USR1 i3status"
 
 #colors
 # class                 border  backgr. text    indicator
