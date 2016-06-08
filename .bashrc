@@ -4,6 +4,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+#composer
+export PATH=$PATH:$HOME/.composer/vendor/bin
+
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 export HISTFILE=~/.bbash_history
