@@ -35,6 +35,7 @@ alias xo='xdg-open'
 alias ttr='gvfs-trash'
 alias pgr="ps aux |grep -i"
 alias pge="ps aux |grep -i"
+alias car="cat"
 alias gti="git"
 alias got="git"
 alias gs="git st"
