@@ -169,6 +169,7 @@ bindsym $mod+Mod3+z exec echo seek-backward > /tmp/.fifo-player-input
 bindsym $mod+Mod3+x exec echo seek-forward > /tmp/.fifo-player-input
 bindsym Mod3+s exec echo play-file > /tmp/.fifo-player-input
 bindsym Mod3+d exec echo change-directory > /tmp/.fifo-player-input
+bindsym Mod3+g exec echo change-random > /tmp/.fifo-player-input
 #playlist
 bindsym Mod3+f exec echo > /tmp/.playlist-maker-input
 
