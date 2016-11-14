@@ -2,15 +2,10 @@
 
 :> /dev/shm/fifo-player-song
 
-while true
+tail -f /dev/shm/fifo-player-song | while read line
 do
-    if read line
-    then
-    	echo "$line" > /dev/shm/fifo-player-song
-    	killall -USR1 i3status
-	fi
-	sleep 1
-done < /tmp/.fifo-player-song &
+	killall -USR1 i3status
+done &
 
 sleep 1 && killall -USR1 i3status &
 i3status --config ~/.i3/i3status.conf | while :
