@@ -9,6 +9,7 @@ do
     	echo "$line" > /dev/shm/fifo-player-song
     	killall -USR1 i3status
 	fi
+	sleep 1
 done < /tmp/.fifo-player-song &
 
 sleep 1 && killall -USR1 i3status &
