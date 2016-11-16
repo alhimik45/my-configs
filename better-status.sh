@@ -2,7 +2,7 @@
 
 :> /dev/shm/fifo-player-song
 
-tail -f /dev/shm/fifo-player-song | while read line
+tail -f /dev/shm/fifo-player-song 2>/dev/null | while read line
 do
 	killall -USR1 i3status
 done &
