@@ -226,7 +226,7 @@ bar {
 #startup
 exec mkfifo /tmp/.fifo-player-song
 exec "killall nw;  killall mplayer ;"
-exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -t TOP -e "top -i -d 1"; workspace 2'
+exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -e "top -i -d 1"; workspace 2'
 exec /usr/bin/python /usr/bin/mintupdate-launcher
 exec blueman-applet
 exec dunst -to 0 -lto 0 -nto 0 -cto 0
