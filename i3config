@@ -194,6 +194,7 @@ hide_edge_borders vertical
 workspace_layout stacking
 
 #windows
+for_window [class="jetbrains-idea"] focus
 for_window [class="9menu"] floating enable, border none
 for_window [title="node-webkit"] floating enable, border none
 for_window [title="Calculator"] floating enable
