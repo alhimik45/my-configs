@@ -151,7 +151,7 @@ bindsym $mod+Right resize grow width 3 px or 3 ppt
 bindsym $mod+e workspace next_on_output
 bindsym $mod+w workspace prev_on_output
 
-bindsym $mod+Tab exec 9menu -popup -teleport -font -*-courier-*-r-*-*-17-120-100-100-*-*-*-*  -bg "#c1c48b" firefox chromium subl steam xchat skype tor-browser transmission-gtk screenshot screenshot-area
+bindsym $mod+Tab exec 9menu -popup -teleport -font -*-courier-*-r-*-*-17-120-100-100-*-*-*-*  -bg "#c1c48b" firefox chromium subl steam xchat skype tor-browser transmission-gtk virtualbox screenshot screenshot-area
 bindsym Print exec gnome-screenshot -f "$HOME/Изображения/$(date +"Снимок экрана от %G-%m-%d %H:%M:%S.png")"
 bindsym Mod3+w exec xscreensaver-command -lock
 bindsym $mod+c exec gnome-calculator
