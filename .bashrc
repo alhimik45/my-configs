@@ -7,6 +7,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #composer
 export PATH=$PATH:$HOME/.composer/vendor/bin
 
+export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-x64
+export PATH=$JAVA_HOME/bin:$PATH
+
 export HISTFILESIZE=-1
 export HISTSIZE=-1
 export HISTFILE=~/.bbash_history
