@@ -6,6 +6,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 #composer
 export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-x64
 export PATH=$JAVA_HOME/bin:$PATH
