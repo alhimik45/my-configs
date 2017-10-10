@@ -1,4 +1,6 @@
 
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 ### Added by the Heroku Toolbelt
