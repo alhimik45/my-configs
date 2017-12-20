@@ -155,7 +155,7 @@ bindsym $mod+Tab exec 9menu -popup -teleport -font -*-courier-*-r-*-*-17-120-100
 bindsym Print exec gnome-screenshot -f "$HOME/Изображения/$(date +"Снимок экрана от %G-%m-%d %H:%M:%S.png")"
 bindsym Mod3+w exec xscreensaver-command -lock
 bindsym $mod+c exec gnome-calculator
-bindsym $mod+i exec "gnome-terminal -t PING -e 'ping 91.235.136.152 -s 16'"
+bindsym $mod+i exec "gnome-terminal -t PING -e 'ping 5.9.178.92 -s 16'"
 
 #wallpaper
 bindsym Mod3+p exec echo next > /tmp/.wp-input
