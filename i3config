@@ -231,7 +231,7 @@ exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -e "top -i -d 1"; 
 exec /usr/bin/python /usr/bin/mintupdate-launcher
 exec blueman-applet
 exec dunst -to 0 -lto 0 -nto 0 -cto 0
-exec "killall xxkb; sleep 10s && xxkb &"
+exec "killall xxkb; sleep 10s && { while true; do xxkb; done } &"
 exec xscreensaver -nosplash
 exec "killall wallpaper-switcher; /home/userr/.i3/wallpaper-switcher /home/userr/.wallpapers/ /tmp/.wp-input 1800"
 exec i3-msg 'exec nw /home/userr/.i3/fifo-player.nw /home/userr/.i3/player-config.json &>> player.log'
