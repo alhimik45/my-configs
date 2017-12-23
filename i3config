@@ -236,3 +236,4 @@ exec xscreensaver -nosplash
 exec "killall wallpaper-switcher; /home/userr/.i3/wallpaper-switcher /home/userr/.wallpapers/ /tmp/.wp-input 1800"
 exec i3-msg 'exec nw /home/userr/.i3/fifo-player.nw /home/userr/.i3/player-config.json &>> player.log'
 exec i3-msg 'exec nw /home/userr/.i3/playlist-maker.nw /home/userr/.i3/playlist-config.json &>> playlist.log'
+exec synclient HorizTwoFingerScroll=1
