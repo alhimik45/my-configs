@@ -1,0 +1,31 @@
+.tab .tab-audio{ /* move audio button to left  */
+	order:-1 !important;
+}
+
+.tab .close { /* move close button to right and always show  */
+	right: 4px;
+	position: relative;
+	order:1 !important;	
+}
+
+.tab .favicon{ /* always show favicon, on Mac it disappears when you mouseover  */
+	display: inline !important;
+	margin-left: -3px !important;
+}
+
+#titlebar .window-buttongroup {
+	display: none;
+}
+
+#tabs-container.top {
+    padding-top: 0px !important;
+    padding-left: 0px !important;
+}
+
+.bookmark-bar button {
+	padding: 0 !important;
+}
+
+.linux.alt #tabs-container .tab-audio {
+	transform: unset;
+}
