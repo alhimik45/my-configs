@@ -6,6 +6,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
+export PATH="$PATH:/home/userr/.local/bin"
+
+
 #composer
 export PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH=$PATH:$HOME/.cargo/bin
