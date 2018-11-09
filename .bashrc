@@ -1,4 +1,6 @@
 
+export VISUAL=nano
+
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -7,6 +9,8 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="$PATH:/home/userr/.local/bin"
+
+export PATH="$PATH:/home/userr/bin"
 
 
 #composer
@@ -40,8 +44,8 @@ export PROMPT_COMMAND='history -a; __git_ps1 "${GREEN}\u${BLUE} \w${YELLOW} " "\
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 export CHROME_BIN=/usr/bin/chromium-browser
-export GOROOT=$HOME/Programs/go
-export GOPATH=$HOME/Programs/gopath
+export GOROOT=$HOME/programs/go
+export GOPATH=$HOME/programs/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias grep="grep --color=auto"
 alias ls='ls --color=auto'
