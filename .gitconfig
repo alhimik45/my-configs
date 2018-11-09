@@ -1,0 +1,26 @@
+[user]
+	email = mail@alhimik.me
+	name = alhimik45
+[alias]
+  ch = checkout
+  co = commit
+  st = status
+  br = branch
+[diff]
+    external = ~/bin/mcd
+
+[pager]
+    diff =
+[core]
+	editor = subl -w -n
+	autocrlf = input
+[push]
+	default = simple
+
+[merge "mps"]
+	name = MPS merge driver
+	driver = "\"/home/userr/.MPS33/config/mps-merger.sh\" %O %A %B %L"
+
+
+[credential]
+	helper = cache --timeout=360000
