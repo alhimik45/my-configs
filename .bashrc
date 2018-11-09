@@ -22,6 +22,9 @@ export HISTFILE=~/.bbash_history
 export HISTCONTROL=ignorespace
 
 
+source "$HOME/.git-prompt.sh"
+
+
 #${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\]
 
 GREEN='\[\033[01;32m\]'
@@ -66,14 +69,3 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
 shopt -s cdspell
-
-
-
-# {{{
-# Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
