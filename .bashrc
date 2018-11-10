@@ -5,12 +5,10 @@ export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 export PATH="$PATH:/home/userr/.local/bin"
 
-export PATH="$PATH:/home/userr/bin"
+export PATH="/home/userr/bin:$PATH"
 
 
 #composer
@@ -40,7 +38,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=1
 # export PS1="${GREEN}\u${BLUE} \w\n${BLUE}\$${NC} "
-export PROMPT_COMMAND='history -a; __git_ps1 "${GREEN}\u${BLUE} \w${YELLOW} " "\n${BLUE}\$ ${NC}" "\t%s"; ( __vte_prompt_command ) 2> /dev/null'
+export PROMPT_COMMAND='history -a; __git_ps1 "${GREEN}\u${BLUE} \w${YELLOW} " "\n${BLUE}\$ ${NC}" "\t%s"; ( __vte_prompt_command ) 2> /dev/null;echo -en "\033]2;"Terminal"\007"'
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 export CHROME_BIN=/usr/bin/chromium-browser
