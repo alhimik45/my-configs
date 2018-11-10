@@ -53,7 +53,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 alias xo='xdg-open'
-alias ttr='gvfs-trash'
+alias ttr='gio trash'
 alias pgr="ps aux |grep -i"
 alias pge="ps aux |grep -i"
 alias car="cat"
