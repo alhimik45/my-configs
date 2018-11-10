@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font xft:Sans 10.5
+font xft:Sans 11
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -113,7 +113,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 #open empty workspace
-bindsym $mod+grave exec "~/.i3/clear-ws.sh"
+bindsym $mod+grave exec "~/projects/dotfiles/clear-ws.sh"
 
 # reload the configuration file
 bindsym $mod+u reload
@@ -151,8 +151,8 @@ bindsym $mod+Right resize grow width 3 px or 3 ppt
 bindsym $mod+e workspace next_on_output
 bindsym $mod+w workspace prev_on_output
 
-bindsym $mod+Tab exec 9menu -popup -teleport -font -*-courier-*-r-*-*-17-120-100-100-*-*-*-*  -bg "#c1c48b" vivaldi firefox chromium subl steam xchat skype remmina tor-browser transmission-gtk virtualbox screenshot screenshot-area
-bindsym Print exec gnome-screenshot -f "$HOME/Изображения/$(date +"Снимок экрана от %G-%m-%d %H:%M:%S.png")"
+bindsym $mod+Tab exec 9menu -popup -teleport -font "-*-droid sans mono-*-r-*-*-17-120-100-100-*-*-*-*"  -bg "#c1c48b" firefox chromium subl steam xchat skype remmina tor-browser transmission-gtk virtualbox screenshot screenshot-area
+bindsym Print exec gnome-screenshot -f "$HOME/imgs/$(date +"Screenshot from %G-%m-%d %H:%M:%S.png")"
 bindsym Mod3+w exec xscreensaver-command -lock
 bindsym $mod+c exec gnome-calculator
 bindsym $mod+i exec "gnome-terminal -t PING -e 'ping 5.9.178.92 -s 16'"
@@ -175,10 +175,10 @@ bindsym Mod3+g exec echo change-random > /tmp/.fifo-player-input
 bindsym Mod3+f exec echo > /tmp/.playlist-maker-input
 
 #sound
-bindsym Mod3+m exec "amixer set Capture toggle 1> /dev/null;killall -USR1 i3status"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle 1> /dev/null;killall -USR1 i3status"
-bindsym XF86AudioLowerVolume exec "amixer sset Master 1%- 1> /dev/null;killall -USR1 i3status"
-bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+ 1> /dev/null;killall -USR1 i3status"
+bindsym Mod3+m exec "amixer set Capture toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-7:refresh:bool:true"
+bindsym XF86AudioMute exec "amixer -D pulse set Master toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+bindsym XF86AudioLowerVolume exec "amixer sset Master 1%- 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+ 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
 
 #colors
 # class                 border  backgr. text    indicator
@@ -205,37 +205,16 @@ for_window [class="^Nemo$" instance="^file_progress$"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-		position top
-		tray_output LVDS1
-		status_command ~/.i3/better-status.sh
-		colors {
-			statusline	#000000
-			separator	#000000
-			background	#c1c48b
-		
-			# class					border		background		text
-	        focused_workspace		#000000		#81654f			#000000
-	        active_workspace		#000000		#81654f			#000000
-	        inactive_workspace		#81654f		#c1c48b			#000000
-	        urgent_workspace		#000000		#ff0000			#000000
-	    }
-}
-
 
 #startup
-exec mkfifo /tmp/.fifo-player-song
+exec /home/userr/projects/dotfiles/song-change-notifier.sh
 exec "killall nw;  killall mplayer ;"
 exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -e "top -i -d 1"; workspace 2'
-exec /usr/bin/python /usr/bin/mintupdate-launcher
-exec blueman-applet
 exec dunst -to 0 -lto 0 -nto 0 -cto 0
-exec "killall xxkb; sleep 10s && { while true; do xxkb; done } &"
 exec xscreensaver -nosplash
-exec "killall wallpaper-switcher; /home/userr/.i3/wallpaper-switcher /home/userr/.wallpapers/ /tmp/.wp-input 1800"
-exec i3-msg 'exec nw /home/userr/.i3/fifo-player.nw /home/userr/.i3/player-config.json &>> player.log'
-exec i3-msg 'exec nw /home/userr/.i3/playlist-maker.nw /home/userr/.i3/playlist-config.json &>> playlist.log'
-exec synclient HorizTwoFingerScroll=1
-exec /home/userr/.local/share/TelegramDesktop/Telegram
+exec "killall /home/userr/projects/go/wallpaper-switcher/wallpaper-switcher; /home/userr/projects/go/wallpaper-switcher/wallpaper-switcher /home/userr/wallpapers/ /tmp/.wp-input 1800"
+exec bash -c "nw /home/userr/projects/js/fifo-player/compiled/fifo-player.nw /home/userr/projects/dotfiles/player-config.json"
+exec bash -c "nw /home/userr/projects/js/playlist-maker/compiled/playlist-maker.nw /home/userr/projects/dotfiles/playlist-config.json"
+exec telegram-desktop
+exec xfce4-panel --disable-wm-check
+exec lxpolkit
