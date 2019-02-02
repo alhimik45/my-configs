@@ -15,7 +15,7 @@ export PATH="/home/userr/bin:$PATH"
 export PATH=$PATH:$HOME/.composer/vendor/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
-export JAVA_HOME=/usr/lib/jvm/jdk-8-oracle-x64
+export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$JAVA_HOME/bin:$PATH
 
 export HISTFILESIZE=-1
