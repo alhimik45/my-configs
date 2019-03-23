@@ -1,3 +1,0 @@
-{  :plugins [:wallpapers]
-   :images-folder "/home/userr/.wallpapers"
-   :switch-time 30 }
