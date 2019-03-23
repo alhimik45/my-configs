@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font xft:Sans 11
+font xft:Sans 12
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -155,7 +155,7 @@ bindsym $mod+Tab exec 9menu -popup -teleport -font "-*-droid sans mono-*-r-*-*-1
 bindsym Print exec gnome-screenshot -f "$HOME/imgs/$(date +"Screenshot from %G-%m-%d %H:%M:%S.png")"
 bindsym Mod3+w exec xscreensaver-command -lock
 bindsym $mod+c exec gnome-calculator
-bindsym $mod+i exec "gnome-terminal -t PING -e 'ping 5.9.178.92 -s 16'"
+bindsym $mod+i exec "gnome-terminal -t PING -- ping 5.9.178.92 -s 16"
 
 #wallpaper
 bindsym Mod3+p exec echo next > /tmp/.wp-input
@@ -209,7 +209,7 @@ for_window [window_role="task_dialog"] floating enable
 #startup
 exec /home/userr/projects/dotfiles/song-change-notifier.sh
 exec "killall nw;  killall mplayer ;"
-exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -e "top -i -d 1"; workspace 2'
+exec --no-startup-id i3-msg 'workspace 5; exec gnome-terminal -- top -i -d 1; workspace 2'
 exec dunst -to 0 -lto 0 -nto 0 -cto 0
 exec xscreensaver -nosplash
 exec "killall /home/userr/projects/go/wallpaper-switcher/wallpaper-switcher; /home/userr/projects/go/wallpaper-switcher/wallpaper-switcher /home/userr/wallpapers/ /tmp/.wp-input 1800"
@@ -217,4 +217,3 @@ exec bash -c "nw /home/userr/projects/js/fifo-player/compiled/fifo-player.nw /ho
 exec bash -c "nw /home/userr/projects/js/playlist-maker/compiled/playlist-maker.nw /home/userr/projects/dotfiles/playlist-config.json"
 exec telegram-desktop
 exec xfce4-panel --disable-wm-check
-exec lxpolkit

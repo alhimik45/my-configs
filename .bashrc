@@ -2,6 +2,7 @@
 export VISUAL=nano
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export AURDEST="/tmp"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
@@ -70,4 +71,8 @@ alias la="ls -a"
 alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
+alias pu="pacaur"
 shopt -s cdspell
+
+_completion_loader pacaur
+complete -o default -F _pacaur pu
