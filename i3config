@@ -180,6 +180,9 @@ bindsym XF86AudioMute exec "amixer -D pulse set Master toggle 1> /dev/null;xfce4
 bindsym XF86AudioLowerVolume exec "amixer sset Master 1%- 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
 bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+ 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
 
+bindsym Mod3+i exec "xmodmap /home/userr/.Xmodmap"
+bindsym Mod3+u exec "xmodmap /home/userr/.FXmodmap"
+
 #colors
 # class                 border  backgr. text    indicator
 client.focused          #000000 #81654f #000000 #2e9ef4

@@ -43,8 +43,8 @@ export PROMPT_COMMAND='history -a; __git_ps1 "${GREEN}\u${BLUE} \w${YELLOW} " "\
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 export CHROME_BIN=/usr/bin/chromium-browser
-export GOROOT=$HOME/programs/go
-export GOPATH=$HOME/programs/gopath
+#export GOROOT=$HOME/programs/go
+export GOPATH=$HOME/gopath
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 alias grep="grep --color=auto"
 alias ls='ls --color=auto'
