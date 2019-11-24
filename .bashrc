@@ -8,6 +8,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 
 export PATH="$PATH:/home/userr/.local/bin"
+export PATH="$PATH:/home/userr/.gem/ruby/2.6.0/bin"
 
 export PATH="/home/userr/bin:$PATH"
 
