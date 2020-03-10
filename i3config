@@ -220,3 +220,4 @@ exec bash -c "nw /home/userr/projects/js/playlist-maker/compiled/playlist-maker.
 exec telegram-desktop
 exec evolution
 exec xfce4-panel --disable-wm-check
+exec nm-applet
