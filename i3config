@@ -201,6 +201,7 @@ for_window [class="9menu"] floating enable, border none
 for_window [title="node-webkit"] floating enable, border none
 for_window [title="Calculator"] floating enable
 for_window [title="Вычислитель"] floating enable
+for_window [title="Microsoft Teams Notification"] floating enable
 for_window [title="SpyWars"] floating enable
 for_window [title="ec-18.01"] floating enable, border none
 for_window [class="^Nemo$" instance="^file_progress$"] floating enable
