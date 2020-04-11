@@ -223,3 +223,4 @@ exec telegram-desktop
 exec evolution
 exec xfce4-panel --disable-wm-check
 exec nm-applet
+exec bash -c "picom -b --config /home/userr/.config/picom/conf 2>/dev/null 1>&2"
