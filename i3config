@@ -220,7 +220,6 @@ exec "killall /home/userr/projects/go/wallpaper-switcher/wallpaper-switcher; /ho
 exec bash -c "nw /home/userr/projects/js/fifo-player/compiled/fifo-player.nw /home/userr/projects/dotfiles/player-config.json"
 exec bash -c "nw /home/userr/projects/js/playlist-maker/compiled/playlist-maker.nw /home/userr/projects/dotfiles/playlist-config.json"
 exec telegram-desktop
-exec evolution
 exec xfce4-panel --disable-wm-check
 exec nm-applet
 exec bash -c "picom -b --config /home/userr/.config/picom/conf 2>/dev/null 1>&2"
