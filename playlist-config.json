@@ -1,4 +1,5 @@
 {
 	"music_directory": "/home/userr/music/all",
-	"base_directory": "/home/userr/music"
+	"base_directory": "/home/userr/music",
+	"input_fifo": "/home/userr/tmp/.playlist-maker-input"	
 }

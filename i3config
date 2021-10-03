@@ -171,7 +171,7 @@ bindsym Mod3+s exec echo play-file > /tmp/.fifo-player-input
 bindsym Mod3+d exec echo change-directory > /tmp/.fifo-player-input
 bindsym Mod3+g exec echo change-random > /tmp/.fifo-player-input
 #playlist
-bindsym Mod3+f exec echo > /tmp/.playlist-maker-input
+bindsym Mod3+f exec echo > /home/userr/tmp/.playlist-maker-input
 
 #sound
 bindsym Mod3+Shift+q exec "amixer set Capture toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-7:refresh:bool:true"
