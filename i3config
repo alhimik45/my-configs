@@ -176,9 +176,12 @@ bindsym Mod3+f exec echo > /home/userr/tmp/.playlist-maker-input
 #sound
 bindsym Mod3+Shift+q exec "amixer set Capture toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-7:refresh:bool:true"
 bindsym Mod3+m exec "amixer set Capture toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-7:refresh:bool:true"
-bindsym XF86AudioMute exec "amixer -D pulse set Master toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
-bindsym XF86AudioLowerVolume exec "amixer sset Master 1%- 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
-bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+ 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+#bindsym XF86AudioMute exec "amixer -D pulse set Master toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+bindsym F3 exec "amixer -D pulse set Master toggle 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+#bindsym XF86AudioLowerVolume exec "amixer sset Master 1%- 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+bindsym F1 exec "amixer sset Master 1%- 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+#bindsym XF86AudioRaiseVolume exec "amixer sset Master 1%+ 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
+bindsym F2 exec "amixer sset Master 1%+ 1> /dev/null;xfce4-panel --plugin-event=genmon-6:refresh:bool:true"
 
 bindsym Mod3+i exec "xmodmap /home/userr/.Xmodmap"
 bindsym Mod3+u exec "xmodmap /home/userr/.FXmodmap"
