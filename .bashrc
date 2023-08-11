@@ -1,5 +1,6 @@
 
 export VISUAL=nano
+export EDITOR=nano
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export AURDEST="/tmp"
