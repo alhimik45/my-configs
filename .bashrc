@@ -1,6 +1,6 @@
 
-export VISUAL=nano
-export EDITOR=nano
+export VISUAL=micro
+export EDITOR=micro
 
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export AURDEST="/tmp"
@@ -74,6 +74,7 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
 alias pu="pacaur"
+alias nano="micro"
 shopt -s cdspell
 
 _completion_loader pacaur
