@@ -20,6 +20,8 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$JAVA_HOME/bin:$PATH
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 
 export HISTFILESIZE=-1
 export HISTSIZE=-1
